@@ -9,7 +9,7 @@ type UserRequest = {
 
 export class CreateUserUseCase {
   async execute(data: UserRequest) {
-    const userRepository = new UserRepository();
+    const userRepository = UserRepository.getInstance();
 
     if (!data.username || !data.password) {
       throw new Error("Username/password is required.");
