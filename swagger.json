@@ -4,5 +4,79 @@
     "title": "Serviço de agendamento de consulta",
     "description": "Essa API é responsável pelo agendamento de consultas",
     "version": "1.0.0"
+  },
+  "paths": {
+    "/specialities": {
+      "post": {
+        "tags": ["Speciality"],
+        "decription": "Cadastro de especilidade",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpecialityRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpecialityResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SpecialityRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "NAME_TEST",
+            "description": "Nome da especialidade"
+          },
+          "description": {
+            "type": "string",
+            "example": "DESCRIPTION_TEST",
+            "description": "Descrição da especialidade"
+          }
+        },
+        "required": ["name", "description"]
+      },
+      "SpecialityResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "decription": "ID da especilidade cadastrada",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "example": "NAME_TEST",
+            "description": "Nome da especialidade"
+          },
+          "description": {
+            "type": "string",
+            "example": "DESCRIPTION_TEST",
+            "description": "Descrição da especialidade"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Data de criação da especialidade"
+          }
+        },
+        "required": ["name", "description"]
+      }
+    }
   }
 }
