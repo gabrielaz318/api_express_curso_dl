@@ -1,10 +1,10 @@
-import { prismaCliente } from "../../../../infra/databases/prisma.config";
+import { prismaClient } from "../../../../infra/databases/prisma.config";
 import { User } from "../../entities/user.entity";
 import { IUserRepository } from "../user.repository";
 
 export class UserPrismaRepository implements IUserRepository {
   async findByUsername(username: string): Promise<User | undefined> {
-    const user = await prismaCliente.user.findUnique({
+    const user = await prismaClient.user.findUnique({
       where: {
         username,
       },
@@ -13,7 +13,7 @@ export class UserPrismaRepository implements IUserRepository {
     return user || undefined;
   }
   async save(data: User): Promise<User> {
-    const user = await prismaCliente.user.create({
+    const user = await prismaClient.user.create({
       data: {
         name: data.name,
         username: data.username,
