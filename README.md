@@ -1,5 +1,23 @@
 # Agendamento de consulta médica
 
+### **Inicialização container pro DB**
+
+Você pode usar esse comando para iniciar o container:
+
+`docker run --name api_express_curso_dl -p 5432:5432 -e POSTGRES_PASSWORD=admin -e POSTGRES_USER=admin -d -t postgres`
+
+> Caso apareça esse erro:
+>
+> error during connect: this error may indicate that the docker daemon is not running
+>
+> Utilize esse comando:
+>
+> `"C:\Program Files\Docker\Docker\DockerCli.exe" -SwitchDaemon`
+>
+> Caso ainda não funcione use esse:
+>
+> `wsl --update` e tente abrir o docker
+
 ### **Funcionalidades**
 
 ---
