@@ -1,7 +1,8 @@
 import { User } from "../../entities/user.entity";
-import { ParameterRequiredError } from "../../../../errors/parameter-required.error";
-import { IUserRepository } from "../../repositories/user.repository";
 import { CustomError } from "../../../../errors/custom.error";
+import { IUserRepository } from "../../repositories/user.repository";
+import { IPasswordCrypto } from "../../../../infra/shared/crypto/password.crypto";
+import { ParameterRequiredError } from "../../../../errors/parameter-required.error";
 
 type UserRequest = {
   name: string;
@@ -10,7 +11,10 @@ type UserRequest = {
 };
 
 export class CreateUserUseCase {
-  constructor(private userRepository: IUserRepository) {}
+  constructor(
+    private userRepository: IUserRepository,
+    private passwordCrypto: IPasswordCrypto
+  ) {}
 
   async execute(data: UserRequest) {
     if (!data.username || !data.password) {
@@ -29,6 +33,8 @@ export class CreateUserUseCase {
 
     const user = User.create(data);
 
+    const passwordHashed = await this.passwordCrypto.hash(data.password);
+    user.password = passwordHashed;
     const userCreated = await this.userRepository.save(user);
 
     return userCreated;
