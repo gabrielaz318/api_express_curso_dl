@@ -4,7 +4,8 @@
   "description": "API usando Express - Curso DL",
   "main": "index.js",
   "scripts": {
-    "start:dev": "nodemon src/server.ts"
+    "start:dev": "nodemon src/server.ts",
+    "prisma:dev": "npx prisma migrate dev"
   },
   "repository": {
     "type": "git",
