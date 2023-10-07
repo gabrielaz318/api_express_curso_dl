@@ -1,4 +1,0 @@
-{"level":"info","message":"Usuário sendo criado!","timestamp":"07/10/2023 13:36:53"}
-{"level":"info","message":"Usuário sendo criado!","timestamp":"07/10/2023 13:38:02"}
-{"level":"info","message":"Usuário sendo criado!","timestamp":"07/10/2023 13:38:21"}
-{"level":"error","message":"PARAMETER_REQUIRED_ERROR: Username already exists\n    at CreateUserUseCase.<anonymous> (E:\\Área de Trabalho - Arquivos\\Gabriel\\Curso_Nodejs_DaniLeao\\api_express\\src\\models\\users\\useCases\\create-user\\create-user.usecase.ts:22:13)\n    at Generator.next (<anonymous>)\n    at fulfilled (E:\\Área de Trabalho - Arquivos\\Gabriel\\Curso_Nodejs_DaniLeao\\api_express\\src\\models\\users\\useCases\\create-user\\create-user.usecase.ts:5:58)","timestamp":"07/10/2023 13:38:21"}
